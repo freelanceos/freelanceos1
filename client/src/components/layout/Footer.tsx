@@ -31,22 +31,22 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/">
-                  <a className="text-neutral-400 hover:text-white">الصفحة الرئيسية</a>
+                  <span className="text-neutral-400 hover:text-white cursor-pointer">الصفحة الرئيسية</span>
                 </Link>
               </li>
               <li>
                 <Link href="/products">
-                  <a className="text-neutral-400 hover:text-white">تصفح المنتجات</a>
+                  <span className="text-neutral-400 hover:text-white cursor-pointer">تصفح المنتجات</span>
                 </Link>
               </li>
               <li>
                 <Link href="/products/category/programming">
-                  <a className="text-neutral-400 hover:text-white">الكتب الإلكترونية</a>
+                  <span className="text-neutral-400 hover:text-white cursor-pointer">الكتب الإلكترونية</span>
                 </Link>
               </li>
               <li>
                 <Link href="/products/category/design-templates">
-                  <a className="text-neutral-400 hover:text-white">القوالب</a>
+                  <span className="text-neutral-400 hover:text-white cursor-pointer">القوالب</span>
                 </Link>
               </li>
               <li>

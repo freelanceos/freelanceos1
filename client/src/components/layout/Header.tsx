@@ -123,9 +123,9 @@ const Header = () => {
             </li>
             <li>
               <Link href="/products/category/design-templates">
-                <a className={`block font-medium ${location.includes('/products/category/design-templates') ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
+                <span className={`block font-medium cursor-pointer ${location.includes('/products/category/design-templates') ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
                   القوالب
-                </a>
+                </span>
               </Link>
             </li>
           </ul>
