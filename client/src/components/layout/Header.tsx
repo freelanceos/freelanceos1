@@ -24,7 +24,7 @@ const Header = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/">
-            <a className="text-2xl font-bold text-primary">freelanceos</a>
+            <span className="text-2xl font-bold text-primary cursor-pointer">freelanceos</span>
           </Link>
           
           {/* Main Navigation */}
@@ -32,30 +32,30 @@ const Header = () => {
             <ul className="flex space-x-6 space-x-reverse">
               <li>
                 <Link href="/">
-                  <a className={`font-medium ${location === '/' ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
+                  <span className={`font-medium cursor-pointer ${location === '/' ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
                     الرئيسية
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/products">
-                  <a className={`font-medium ${location === '/products' ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
+                  <span className={`font-medium cursor-pointer ${location === '/products' ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
                     المنتجات
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/products/category/programming">
-                  <a className={`font-medium ${location.includes('/products/category/programming') ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
+                  <span className={`font-medium cursor-pointer ${location.includes('/products/category/programming') ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
                     الكتب الإلكترونية
-                  </a>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link href="/products/category/design-templates">
-                  <a className={`font-medium ${location.includes('/products/category/design-templates') ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
+                  <span className={`font-medium cursor-pointer ${location.includes('/products/category/design-templates') ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
                     القوالب
-                  </a>
+                  </span>
                 </Link>
               </li>
             </ul>
@@ -102,23 +102,23 @@ const Header = () => {
           <ul className="space-y-3">
             <li>
               <Link href="/">
-                <a className={`block font-medium ${location === '/' ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
+                <span className={`block font-medium cursor-pointer ${location === '/' ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
                   الرئيسية
-                </a>
+                </span>
               </Link>
             </li>
             <li>
               <Link href="/products">
-                <a className={`block font-medium ${location === '/products' ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
+                <span className={`block font-medium cursor-pointer ${location === '/products' ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
                   المنتجات
-                </a>
+                </span>
               </Link>
             </li>
             <li>
               <Link href="/products/category/programming">
-                <a className={`block font-medium ${location.includes('/products/category/programming') ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
+                <span className={`block font-medium cursor-pointer ${location.includes('/products/category/programming') ? 'text-primary' : 'text-neutral-800 hover:text-primary'}`}>
                   الكتب الإلكترونية
-                </a>
+                </span>
               </Link>
             </li>
             <li>

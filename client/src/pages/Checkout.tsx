@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 const Checkout = () => {
   const { cartItems, getSubtotal, clearCart } = useCart();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
+  const [, navigate] = useLocation();
   const { toast } = useToast();
   
   const { subtotal, tax, total } = calculateOrderTotal(getSubtotal());
