@@ -23,7 +23,7 @@ export function calculateOrderTotal(subtotal: number): {
   tax: number;
   total: number;
 } {
-  const tax = subtotal * 0.15; // 15% tax
+  const tax = 0; // No tax
   const total = subtotal + tax;
   
   return {

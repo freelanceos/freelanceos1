@@ -30,7 +30,7 @@ const CartDrawer = () => {
     <>
       {/* Cart Drawer */}
       <div
-        className={`cart-drawer fixed top-0 left-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 overflow-y-auto transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`cart-drawer fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 overflow-y-auto transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="p-4 border-b border-neutral-200">
           <div className="flex justify-between items-center">
@@ -119,7 +119,7 @@ const CartDrawer = () => {
               <span className="font-bold">{formatPrice(subtotal)}</span>
             </div>
             <div className="flex justify-between mb-4">
-              <span className="text-neutral-600">الضريبة (15%):</span>
+              <span className="text-neutral-600">الضريبة:</span>
               <span className="font-bold">{formatPrice(tax)}</span>
             </div>
             <div className="flex justify-between mb-6">

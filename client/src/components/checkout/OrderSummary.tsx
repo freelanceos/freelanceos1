@@ -42,7 +42,7 @@ const OrderSummary = ({ cartItems, subtotal, tax, total }: OrderSummaryProps) =>
               <span className="font-medium">{formatPrice(subtotal)}</span>
             </div>
             <div className="flex justify-between mb-2">
-              <span className="text-neutral-600">الضريبة (15%):</span>
+              <span className="text-neutral-600">الضريبة:</span>
               <span className="font-medium">{formatPrice(tax)}</span>
             </div>
             <div className="flex justify-between text-lg font-bold mt-4 pt-4 border-t border-neutral-200">
