@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatPrice(price: number): string {
-  return `${price} ر.س`;
+  return `${price} جنيه`;
 }
 
 export const productTypes = {
