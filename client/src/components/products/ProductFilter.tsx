@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { 
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { 
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -28,25 +28,30 @@ interface FilterState {
   sortBy: string;
 }
 
-const ProductFilter = ({ onFilterChange, initialCategorySlug }: ProductFilterProps) => {
+const ProductFilter = ({
+  onFilterChange,
+  initialCategorySlug,
+}: ProductFilterProps) => {
   const { data: categories, isLoading: isLoadingCategories } = useQuery({
-    queryKey: ['/api/categories'],
+    queryKey: ["/api/categories"],
   });
 
   const [filters, setFilters] = useState<FilterState>({
     categories: [],
     types: [],
-    priceRange: 'all',
-    sortBy: 'newest',
+    priceRange: "all",
+    sortBy: "newest",
   });
 
   useEffect(() => {
     if (initialCategorySlug && categories) {
-      const category = categories.find(cat => cat.slug === initialCategorySlug);
+      const category = categories.find(
+        (cat) => cat.slug === initialCategorySlug,
+      );
       if (category) {
-        setFilters(prev => ({
+        setFilters((prev) => ({
           ...prev,
-          categories: [category.id.toString()]
+          categories: [category.id.toString()],
         }));
       }
     }
@@ -57,49 +62,51 @@ const ProductFilter = ({ onFilterChange, initialCategorySlug }: ProductFilterPro
   }, [filters, onFilterChange]);
 
   const handleCategoryChange = (categoryId: string) => {
-    setFilters(prev => {
+    setFilters((prev) => {
       const newCategories = prev.categories.includes(categoryId)
-        ? prev.categories.filter(id => id !== categoryId)
+        ? prev.categories.filter((id) => id !== categoryId)
         : [...prev.categories, categoryId];
-      
+
       return {
         ...prev,
-        categories: newCategories
+        categories: newCategories,
       };
     });
   };
 
   const handleTypeChange = (type: string) => {
-    setFilters(prev => {
+    setFilters((prev) => {
       const newTypes = prev.types.includes(type)
-        ? prev.types.filter(t => t !== type)
+        ? prev.types.filter((t) => t !== type)
         : [...prev.types, type];
-      
+
       return {
         ...prev,
-        types: newTypes
+        types: newTypes,
       };
     });
   };
 
   const handlePriceChange = (value: string) => {
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
-      priceRange: value
+      priceRange: value,
     }));
   };
 
   const handleSortChange = (value: string) => {
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
-      sortBy: value
+      sortBy: value,
     }));
   };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-lg font-bold text-neutral-800 mb-6">تصفية المنتجات</h3>
-      
+      <h3 className="text-lg font-bold text-neutral-800 mb-6">
+        تصفية المنتجات
+      </h3>
+
       <Accordion type="multiple" defaultValue={["categories", "type", "price"]}>
         {/* Categories */}
         <AccordionItem value="categories">
@@ -113,22 +120,28 @@ const ProductFilter = ({ onFilterChange, initialCategorySlug }: ProductFilterPro
                   <div className="h-5 bg-neutral-200 rounded w-2/3"></div>
                 </div>
               ) : (
-                categories?.map(category => (
+                categories?.map((category) => (
                   <div key={category.id} className="flex items-center">
                     <Checkbox
                       id={`category-${category.id}`}
-                      checked={filters.categories.includes(category.id.toString())}
-                      onCheckedChange={() => handleCategoryChange(category.id.toString())}
+                      checked={filters.categories.includes(
+                        category.id.toString(),
+                      )}
+                      onCheckedChange={() =>
+                        handleCategoryChange(category.id.toString())
+                      }
                       className="ml-2"
                     />
-                    <Label htmlFor={`category-${category.id}`}>{category.name}</Label>
+                    <Label htmlFor={`category-${category.id}`}>
+                      {category.name}
+                    </Label>
                   </div>
                 ))
               )}
             </div>
           </AccordionContent>
         </AccordionItem>
-        
+
         {/* Type */}
         <AccordionItem value="type">
           <AccordionTrigger className="py-3">نوع المنتج</AccordionTrigger>
@@ -137,8 +150,8 @@ const ProductFilter = ({ onFilterChange, initialCategorySlug }: ProductFilterPro
               <div className="flex items-center">
                 <Checkbox
                   id="type-ebook"
-                  checked={filters.types.includes('ebook')}
-                  onCheckedChange={() => handleTypeChange('ebook')}
+                  checked={filters.types.includes("ebook")}
+                  onCheckedChange={() => handleTypeChange("ebook")}
                   className="ml-2"
                 />
                 <Label htmlFor="type-ebook">كتاب إلكتروني</Label>
@@ -146,8 +159,8 @@ const ProductFilter = ({ onFilterChange, initialCategorySlug }: ProductFilterPro
               <div className="flex items-center">
                 <Checkbox
                   id="type-template"
-                  checked={filters.types.includes('template')}
-                  onCheckedChange={() => handleTypeChange('template')}
+                  checked={filters.types.includes("template")}
+                  onCheckedChange={() => handleTypeChange("template")}
                   className="ml-2"
                 />
                 <Label htmlFor="type-template">قالب</Label>
@@ -155,72 +168,71 @@ const ProductFilter = ({ onFilterChange, initialCategorySlug }: ProductFilterPro
             </div>
           </AccordionContent>
         </AccordionItem>
-        
+
         {/* Price Range */}
         <AccordionItem value="price">
           <AccordionTrigger className="py-3">نطاق السعر</AccordionTrigger>
           <AccordionContent>
             <div className="space-y-2 pt-2">
               <div className="flex items-center">
-                <input 
-                  type="radio" 
-                  id="price-all" 
-                  name="price-range" 
-                  value="all" 
-                  checked={filters.priceRange === 'all'}
-                  onChange={() => handlePriceChange('all')}
-                  className="ml-2" 
+                <input
+                  type="radio"
+                  id="price-all"
+                  name="price-range"
+                  value="all"
+                  checked={filters.priceRange === "all"}
+                  onChange={() => handlePriceChange("all")}
+                  className="ml-2"
                 />
                 <Label htmlFor="price-all">الكل</Label>
               </div>
               <div className="flex items-center">
-                <input 
-                  type="radio" 
-                  id="price-under-100" 
-                  name="price-range" 
-                  value="under100" 
-                  checked={filters.priceRange === 'under100'}
-                  onChange={() => handlePriceChange('under100')}
-                  className="ml-2" 
+                <input
+                  type="radio"
+                  id="price-under-100"
+                  name="price-range"
+                  value="under100"
+                  checked={filters.priceRange === "under100"}
+                  onChange={() => handlePriceChange("under100")}
+                  className="ml-2"
                 />
-                <Label htmlFor="price-under-100">أقل من 100 ر.س</Label>
+                <Label htmlFor="price-under-100">أقل من 100 جنيه</Label>
               </div>
               <div className="flex items-center">
-                <input 
-                  type="radio" 
-                  id="price-100-200" 
-                  name="price-range" 
-                  value="100to200" 
-                  checked={filters.priceRange === '100to200'}
-                  onChange={() => handlePriceChange('100to200')}
-                  className="ml-2" 
+                <input
+                  type="radio"
+                  id="price-100-200"
+                  name="price-range"
+                  value="100to200"
+                  checked={filters.priceRange === "100to200"}
+                  onChange={() => handlePriceChange("100to200")}
+                  className="ml-2"
                 />
-                <Label htmlFor="price-100-200">100 - 200 ر.س</Label>
+                <Label htmlFor="price-100-200">100 - 200 جنيه</Label>
               </div>
               <div className="flex items-center">
-                <input 
-                  type="radio" 
-                  id="price-over-200" 
-                  name="price-range" 
-                  value="over200" 
-                  checked={filters.priceRange === 'over200'}
-                  onChange={() => handlePriceChange('over200')}
-                  className="ml-2" 
+                <input
+                  type="radio"
+                  id="price-over-200"
+                  name="price-range"
+                  value="over200"
+                  checked={filters.priceRange === "over200"}
+                  onChange={() => handlePriceChange("over200")}
+                  className="ml-2"
                 />
-                <Label htmlFor="price-over-200">أكثر من 200 ر.س</Label>
+                <Label htmlFor="price-over-200">أكثر من 200 جنيه</Label>
               </div>
             </div>
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-      
+
       {/* Sort */}
       <div className="mt-6">
-        <Label htmlFor="sort-by" className="block mb-2">ترتيب حسب</Label>
-        <Select
-          value={filters.sortBy}
-          onValueChange={handleSortChange}
-        >
+        <Label htmlFor="sort-by" className="block mb-2">
+          ترتيب حسب
+        </Label>
+        <Select value={filters.sortBy} onValueChange={handleSortChange}>
           <SelectTrigger id="sort-by" className="w-full">
             <SelectValue placeholder="ترتيب حسب" />
           </SelectTrigger>

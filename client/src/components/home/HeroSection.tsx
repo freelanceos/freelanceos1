@@ -3,37 +3,41 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden">
-      {/* Hero gradient overlay */}
-      <div className="hero-gradient absolute inset-0 z-10"></div>
-      
-      {/* Background image */}
-      <img 
-        src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=800" 
-        alt="العمل الرقمي والتعلم" 
-        className="w-full h-[400px] md:h-[500px] object-cover" 
-      />
-      
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-20">
-        <div className="py-16 md:py-24 max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-            منصتك الرقمية للتعلم والإبداع
-          </h1>
-          <p className="text-white text-xl mb-8">
-            استكشف مجموعة من الكتب الإلكترونية والقوالب المصممة خصيصًا لتعزيز مهاراتك في البرمجة والتصميم.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/products">
-              <Button className="bg-secondary text-neutral-900 font-bold py-3 px-6 rounded-md hover:bg-secondary-light transition duration-300 text-center">
-                استكشف المنتجات
-              </Button>
-            </Link>
-            <Button variant="outline" className="bg-white text-primary font-bold py-3 px-6 rounded-md hover:bg-neutral-100 transition duration-300 text-center">
-              تعرف علينا أكثر
-            </Button>
-          </div>
+    <section className="flex w-full min-h-screen">
+      {/* الجانب الأيسر - النص */}
+      <div className="flex flex-col justify-center px-12 w-1/2 bg-gray-900 text-white">
+        <div className="mb-4 inline-block bg-white bg-opacity-30 rounded-full px-5 py-1 text-sm font-semibold select-none w-max">
+          خدمات البرمجة والتصميم
         </div>
+        <h1 className="text-5xl font-extrabold mb-6 leading-tight">
+          حلول برمجية وتصميم احترافية لدعم أعمالك الرقمية
+        </h1>
+        <p className="text-lg mb-8">
+          نقدم تطوير برمجيات، تصميم واجهات جذابة، وبيع الكتب الإلكترونية
+          والدورات التعليمية لتطوير مهاراتك.
+        </p>
+        <div className="flex gap-4">
+          <Link href="/ContactUs">
+            <Button className="bg-white text-black font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition">
+              تواصل معنا
+            </Button>
+          </Link>
+          <Link href="/products">
+            <Button className="bg-transparent border border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-black transition">
+              منتجاتنا
+            </Button>
+          </Link>
+        </div>
+      </div>
+
+      {/* الجانب الأيمن - صورة */}
+      <div className="w-1/2 relative">
+        <img
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c"
+          alt="برمجة وتصميم وكتب إلكترونية ودورات"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
       </div>
     </section>
   );
