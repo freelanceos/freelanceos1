@@ -30,7 +30,7 @@ const CartDrawer = () => {
     <>
       {/* Cart Drawer */}
       <div
-        className={`cart-drawer fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 overflow-y-auto transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 overflow-y-auto transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="p-4 border-b border-neutral-200">
           <div className="flex justify-between items-center">
@@ -146,10 +146,12 @@ const CartDrawer = () => {
       </div>
 
       {/* Overlay */}
-      <div
-        onClick={closeCart}
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-      />
+      {isOpen && (
+        <div
+          onClick={closeCart}
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+        />
+      )}
     </>
   );
 };
