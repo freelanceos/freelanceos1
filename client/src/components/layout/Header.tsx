@@ -21,7 +21,7 @@ const Header = () => {
           {/* Logo on right */}
           <Link href="/">
             <img
-              src="src/public/logo.png"
+              src="src/pic/logo.png"
               alt="freelanceos logo"
               className="h-8 cursor-pointer"
             />
