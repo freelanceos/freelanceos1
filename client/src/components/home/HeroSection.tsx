@@ -17,7 +17,7 @@ const HeroSection = () => {
           والدورات التعليمية لتطوير مهاراتك.
         </p>
         <div className="flex gap-4">
-          <Link href="/ContactUs">
+          <Link href="/contact">
             <Button className="bg-white text-black font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition">
               تواصل معنا
             </Button>
