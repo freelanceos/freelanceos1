@@ -21,7 +21,7 @@ const Header = () => {
           {/* Logo on right */}
           <Link href="https://www.dropbox.com/scl/fi/mwo5ganzm9812imjk8dii/logo.png?rlkey=9j2lwhh156orzcvh5bf05hr41&st=o0cbqy7f&dl=0">
             <img
-              src="src/pic/logo.png"
+              src="src/pic/logoo.png"
               alt="freelanceos logo"
               className="h-8 cursor-pointer"
             />
