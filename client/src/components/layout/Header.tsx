@@ -19,7 +19,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4 flex-row-reverse">
           {/* Logo on right */}
-          <Link href="/">
+          <Link href="pic/logo.png">
             <img
               src="src/pic/logo.png"
               alt="freelanceos logo"
